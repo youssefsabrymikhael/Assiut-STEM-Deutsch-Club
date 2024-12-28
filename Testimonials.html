@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Assiut STEM Deutsch Club</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0a0a0a; /* خلفية داكنة */
+            color: #e0e0e0; /* لون نص فاتح */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease;
+        }
+
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 3rem; /* زيادة حجم العنوان */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .testimonials {
+            width: 90%;
+            max-width: 800px;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial {
+            margin-bottom: 30px; /* زيادة المسافة بين الشهادات */
+            border-left: 5px solid #0073e6;
+            padding-left: 15px;
+            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.15); /* خلفية معتمة */
+            border-radius: 8px;
+            padding: 20px; /* زيادة الحشو داخل الشهادة */
+            font-size: 1.5rem; /* حجم نص أكبر */
+            transition: transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s forwards;
+        }
+
+        .testimonial h3 {
+            color: #0073e6;
+            font-family: 'Verdana', sans-serif;
+            font-weight: bold;
+            font-size: 2rem; /* حجم أكبر لاسم العضو */
+        }
+
+        .testimonial p {
+            font-style: italic;
+            font-size: 1.2rem; /* حجم أكبر للنص */
+        }
+
+        .member-image {
+            width: 150px; /* عرض الصورة أكبر */
+            height: 150px; /* ارتفاع الصورة أكبر */
+            border-radius: 50%; /* شكل دائري */
+            margin-bottom: 15px; /* مسافة بين الصورة والنص */
+        }
+
+        .certificate {
+            width: 100%; /* عرض الشهادة */
+            height: auto; /* ارتفاع تلقائي للحفاظ على النسبة */
+            max-width: 600px; /* حد أقصى للعرض */
+            margin-top: 20px; /* مسافة بين النص والصورة */
+            border-radius: 8px;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Testimonials</h1>
+    </header>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonialContainer">
+        <div class="testimonial" data-id="1">
+            <img src="https://attic.sh/av83d4k8h3ts9jilks23ehaax3y4" alt="Member Image 1" class="member-image">
+            <h3>Member Name 1</h3>
+            <p>"This team has been a remarkable experience for me. The projects we've worked on have not only improved my skills but also allowed me to meet amazing people!"</p>
+            <img src="https://thumbs.dreamstime.com/z/print-146815470.jpg" alt="Certificate 1" class="certificate">
+        </div>
+        <div class="testimonial" data-id="2">
+            <img src="https://via.placeholder.com/150" alt="Member Image 2" class="member-image">
+            <h3>Member Name 2</h3>
+            <p>"I am proud to be a part of the Assiut STEM Deutsch Club. The support and collaboration here are truly inspiring!"</p>
+            <img src="https://via.placeholder.com/600x400" alt="Certificate 2" class="certificate">
+        </div>
+        <!-- Add more testimonials here -->
+    </section>
+
+    <script>
+        // JavaScript to animate testimonials
+        document.addEventListener("DOMContentLoaded", function() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            testimonials.forEach((testimonial, index) => {
+                // Delay the animation for each testimonial
+                testimonial.style.animationDelay = `${index * 0.3}s`;
+                testimonial.classList.add('visible'); // Add class to trigger CSS animation
+            });
+        });
+    </script>
+
+</body>
+</html>

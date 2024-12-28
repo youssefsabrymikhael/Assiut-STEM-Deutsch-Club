@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Assiut STEM Deutsch Club</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Events Section */
+        .events {
+            margin: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+            display: flex; /* Use flexbox for alignment */
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card img {
+            width: 150px; /* Set a fixed width for the image */
+            height: auto; /* Keep the aspect ratio */
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 20px;
+            flex-grow: 1; /* Allow the text to take available space */
+        }
+
+        .event-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #0073e6;
+        }
+
+        .event-content p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .close {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Our Events</h1>
+    </header>
+
+    <!-- Events Section -->
+    <section class="events container">
+        <div class="event-card" onclick="openModal('session1')">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 16.41.05_6f7f2e82.jpg" alt="Session 1">
+            <div class="event-content">
+                <h3>Session 1: Introduction to German Language</h3>
+                <p>A fun-filled session to kickstart your journey in learning German.</p>
+            </div>
+        </div>
+        <div class="event-card" onclick="openModal('session2')">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-25 at 12.10.52_a7fa2124.jpg" alt="Session 2">
+            <div class="event-content">
+                <h3>Session 2: Cultural Insights</h3>
+                <p>Explore the rich culture and traditions of German-speaking countries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Section -->
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modalContent">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <button class="close" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal(session) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+
+            if (session === 'session1') {
+                modalTitle.innerText = 'Session 1: Introduction to German Language';
+                modalDescription.innerText = 'Join us for an engaging session where we introduce the basics of the German language, including essential vocabulary and phrases.';
+            } else if (session === 'session2') {
+                modalTitle.innerText = 'Session 2: Cultural Insights';
+                modalDescription.innerText = 'Dive into the fascinating culture of German-speaking countries, learning about traditions, customs, and celebrations.';
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

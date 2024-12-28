@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assiut STEM Deutsch Club</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:ital,wght@1,300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: rgb(255, 255, 255);
+            min-height: 200vh;
+            /* background-color: rgba(0, 0, 0, 0.5); */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-left, .logo-right {
+            width: 100px;
+            height: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .transparent-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 20px;
+            margin-top: -20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid;
+            animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+        }
+
+        .hidden-paragraph {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s;
+            font-size: 24px;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 20px;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        .floating-card {
+            position: absolute;
+            top: 100vh;
+            left: -700px;
+            transform: translateY(-50%);
+            width: 650px;
+            height: 500px;
+            padding: 20px;
+            background: url('https://cdn.pixabay.com/photo/2018/10/08/07/54/wallberg-3732153_1280.jpg') center/cover;
+            border-radius: 20px;
+            color: white;
+            z-index: 1;
+            opacity: 1;
+            transition: all 1.5s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .show-card {
+            left: 25%;
+            opacity: 1;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .quote-section {
+            background: #f0f8ff;
+            padding: 40px;
+            text-align: center;
+            margin: 100px 0;
+        }
+
+        .quote-section blockquote {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5em;
+            color: #333;
+            border-left: 4px solid #8e44ad;
+            padding-left: 20px;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .floating-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .floating-card p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: justify;
+            color: #fff;
+        }
+
+        .logo-right-floating {
+            position: absolute;
+            top: 68vh;  
+            right: -50%; /* التحكم في المسافة من الجانب الأيمن */
+            width: 650px; /* ضبط حجم الصورة حسب البوكس */
+            height: 500px;
+            z-index: 2; /* فوق الفيديو والخلفيات التانية */
+            transition: all 1.5s ease; /* نفس الانتقال بتاع الـ floating card */
+        }
+
+        .show-logo {
+            right: 5%; /* تخليها موازية للـ floating card بعد الحركة */
+        }
+        /* تكبير الكارت عند تمرير الماوس عليه */
+        .floating-card:hover {
+           transform: scale(1.05) translate(-50%, -50%);
+}
+
+/* عمل زوايا دائرية للوجو */
+.logo-right-floating {
+    border-radius: 20px; /* زوايا دائرية */
+}
+
+/* الكارت الجديد اللي هيظهر من اليمين */
+.floating-card-right {
+    position: absolute;
+    top: 170vh; /* تحديد مكانه تحت اللوجو */
+    right: -700px; /* البداية من خارج الشاشة ناحية اليمين */
+    transform: translateY(-50%);
+    width: 650px;
+    height: auto; /* خليها تلقائية عشان المحتوى يحدد الارتفاع */
+    padding: 20px;
+    background: url('https://cdn.pixabay.com/photo/2021/06/25/23/27/forest-6364913_960_720.jpg') center/cover;
+    border-radius: 20px;
+    color: white;
+    z-index: 1;
+    opacity: 1;
+    transition: all 1.5s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.show-card-right {
+    right: 5%; /* هيتحرك لليسار عشان يظهر */
+    opacity: 1;
+}
+
+/* نصوص الكارت */
+.floating-card-right h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.floating-card-right ul {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.floating-card-right p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+    color: #fff;
+}
+
+/* تكبير الكارت عند تمرير الماوس عليه */
+.floating-card-right:hover {
+    transform: scale(1.05) translateY(-50%);
+}
+.star-left-floating {
+            position: absolute;
+            top: 147vh;  
+            right: 100%; /* التحكم في المسافة من الجانب الأيمن */
+            width: 600px; /* ضبط حجم الصورة حسب البوكس */
+            height: auto;
+            z-index: 2; /* فوق الفيديو والخلفيات التانية */
+            transition: all 1.5s ease; /* نفس الانتقال بتاع الـ floating card */
+        }
+.show-star {
+    right: 55%; /* تخليها موازية للـ floating card بعد الحركة */
+}
+/* عمل زوايا دائرية للوجو */
+.star-left-floating {
+    border-radius: 20px; /* زوايا دائرية */
+}
+/* Styling for the Latest Events section */
+section {
+    padding: 120px 30px;
+  text-align: center;
+  background-color: #f1f5f8;
+  position: relative;
+  top: 1000px; /* Position the section further down */
+  border-radius: 15px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    font-size: 50px;
+  font-family: 'Poppins', sans-serif;
+  color: #ff6b6b; /* Bright color for more impact */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #ff6b6b, #0077b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.event-info {
+  font-size: 24px;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+.event-info strong {
+  color: #0077b6;
+  font-weight: bold;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+
+.gallery img {
+  width: 480px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+/* Styling for the Introductory Video section with gold theme */
+.intro-video-section-gold {
+  background-color: #1a1a1a;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
+  margin-top: 60px;
+  color: #f1c40f; /* Gold color */
+}
+
+.intro-video-section-gold h2 {
+  font-size: 44px;
+  font-family: 'Abril Fatface', cursive; /* Unique font for style */
+  color: #f1c40f; /* Gold color */
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.video-description {
+  font-size: 20px;
+  color: #f1c40f; /* Gold color */
+  font-family: 'Open Sans', sans-serif;
+  margin-bottom: 40px;
+  line-height: 1.8;
+}
+
+.video-container {
+  position: relative;
+  width: 50%; /* Set the video width to 50% of the container */
+  margin: 0 auto;
+  padding-bottom: 28.125%; /* Maintain 16:9 aspect ratio (height is 9/16 of the width) */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 3px solid #f1c40f; /* Gold border */
+  box-shadow: 0px 8px 20px rgba(241, 196, 15, 0.6); /* Gold shadow */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.video-container video:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
+}
+
+/* General styling for How to Join Us section */
+.how-to-join {
+  padding: 100px 30px;
+  background-color: #fff7e6; /* Light background color */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+/* Styling for the flags */
+.flags {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.flag {
+  width: 150px;
+  height: auto;
+  animation: wave 2s infinite;
+}
+
+/* Separate flag positioning */
+.flag-left {
+  position: absolute;
+  left: 200px;
+}
+
+.flag-right {
+  position: absolute;
+  right: 200px;
+}
+
+/* Waving effect for the flags
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+} */
+
+/* Heading Styling */
+.how-to-join h2 {
+  font-size: 48px;
+  font-family: 'Montserrat', sans-serif;
+  color: #d4af37; /* Golden color for the title */
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Paragraph Styling */
+.how-to-join p {
+  font-size: 22px;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+/* Button Styling */
+.how-to-join .join-btn {
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 20px;
+  background-color: #d4af37; /* Golden background for the button */
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.how-to-join .join-btn:hover {
+  background-color: #b5892f;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Images section */
+.how-to-join .join-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.how-to-join .join-images img {
+  width: 320px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effects for the Images */
+.how-to-join .join-images img:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.testimonials {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(to right, #fff9e6, #f0e4d7);
+  border-radius: 15px;
+}
+
+h2 {
+    font-size: 50px;
+  font-family: 'Poppins', sans-serif;
+  color: #ff6b6b; /* Bright color for more impact */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #ff6b6b, #0077b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.testimonial-content blockquote {
+  font-size: 20px;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff7e8;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.certificates {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.certificates img {
+  width: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.certificates img:hover {
+  transform: scale(1.1);
+}
+.photo-gallery {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f3e7e9, #e3dcdc);
+  border-radius: 20px;
+}
+
+.photo-gallery h2 {
+    font-size: 50px;
+  font-family: 'Poppins', sans-serif;
+  color: #ff6b6b; /* Bright color for more impact */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #ff6b6b, #0077b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.gallery img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.team-footer {
+  background-color: #000;
+  padding: 40px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  top:1000px;
+}
+
+.team-logo {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.team-footer h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  color: #c084fc;
+}
+
+.team-footer p {
+  font-family: 'Open Sans', sans-serif;
+  margin: 10px 0;
+  color: #ccc;
+}
+
+.social-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-links li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.social-links a {
+  color: #0800ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+
+.team-footer p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+.bottom-left-image {
+  position: absolute; /* لجعل الصورة ثابتة في مكانها */
+  bottom: 0; /* المسافة من الأسفل */
+  left: 50px; /* المسافة من الشمال */
+  width: 200px; /* عرض الصورة، يمكنك تغييره حسب الحاجة */
+  top: 5225px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-left">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 18.38.57_2d85ecc0.jpg" alt="Team Logo" style="width: 100px; height: auto;">
+        </div>
+        <nav>
+            <div class="transparent-box">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Learning Resources.html">Learning Resources</a></li>
+                    <li><a href="Events.html">Events</a></li>
+                    <li><a href="Programs.html">Programs</a></li>
+                    <li><a href="Testimonials.html">Testimonials</a></li>
+                    <li><a href="about us.html">About Us</a></li>
+                    <li><a href="Contact us.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="logo-right">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-02-14 at 10.27.02 PM.jpeg" alt="School Logo" style="width: 100px; height: auto;">
+        </div>
+    </header>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="https://cdn.pixabay.com/video/2015/10/27/1203-143842710_large.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <main>
+        <h1 id="main-title">Welcome to Assiut STEM Deutsch Club</h1>
+        <p id="hidden-paragraph" class="hidden-paragraph">Assiut STEM German Club offers an engaging way to explore the German language and culture. <br></br>Enhance your skills through interactive sessions and programs.</p>
+    </main>
+    <div class="quote-section">
+        <blockquote>
+            "Die beste Art, die Zukunft vorherzusagen, ist, sie zu gestalten." — Willy Brandt
+        </blockquote>
+    </div>
+    
+    <div id="floating-card" class="floating-card">
+        <h2>🤔 About the Club 🤔</h2>
+        <p>We are dedicated to promoting the <strong>German language</strong> and <strong>culture</strong> among students. 🇩🇪✨<br></br>Through <strong>interactive sessions</strong> and <strong>exciting events</strong>, our club offers a fun way to learn and explore the German language! 🎉📚<br></br>Join us to dive into <strong>German literature</strong>, <strong>music</strong>, and <strong>traditions</strong> while making new friends! 🤝🎶<br></br>Whether you’re a beginner or looking to improve your skills, there’s something for everyone! 🚀🌍</p>
+    </div>
+
+    <img id="logo-right-floating" class="logo-right-floating" src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 18.38.57_2d85ecc0.jpg" alt="Team Logo">
+
+    <div id="benefits-card" class="floating-card-right">
+        <h2>Benefits of Learning German</h2>
+        <ul>
+            <li><strong>Job Opportunities:</strong> 🌍Increase job opportunities in global companies like <strong>Siemens</strong> and <strong>Bosch</strong>.💼</li>
+            <li><strong>Education:</strong> 🎓The possibility of studying at prestigious <strong>German universities</strong> with low or no tuition fees.📚</li>
+            <li><strong>Cultural Exchange:</strong> 🌟Access to <strong>German literature</strong>, <strong>science</strong>, and <strong>philosophy</strong>.📖</li>
+        </ul>
+        <p>Learning German opens doors to <strong>career opportunities</strong> with international companies and access to top-notch German universities. It also allows you to explore <strong>German literature</strong>, <strong>science</strong>, and <strong>philosophy</strong>.✨</p>
+    </div>
+    <img id="star-left-floating" class="star-left-floating" src="https://cdn.pixabay.com/photo/2017/07/02/00/43/bundestag-2463236_960_720.jpg" alt="star Logo">
+    <section>
+        <h2>🔥 Latest Events 🔥</h2>
+        <div class="event-info">
+            <p>
+              📅 <strong>Session 1: Lektion 1 Session</strong> - Date: 15th October<br>
+              🧑‍💻 First session was an introduction to learning Deutsch for our amazing <strong>S'27</strong> girls!<br>
+            </p>
+            <p>
+              📅 <strong>Session 2: Lektion 1&2 Session</strong> - Date: 22th October<br>
+              👩‍🎨 Second session focused on the topics that will appear in the midterm exam for German. <strong>S'27</strong> boys!<br>
+            </p>
+          </div>
+        </div>
+      
+        <div class="gallery">
+          <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 16.41.05_6f7f2e82.jpg" alt="Digital Marketing Workshop">
+          <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-25 at 12.10.54_99d3a4e0.jpg" alt="UI/UX Design Basics">
+        </div>
+      </section>
+   
+<section class="intro-video-section-gold">
+    <h2>✨ Discover Our Team and What We Offer! ✨</h2>
+    <p class="video-description">
+      🚀 Get ready to learn all about our team’s mission, the services we provide, and how we can support your journey! Watch this video to understand our vision, how we help you grow, and the amazing experiences you can be part of with us! 🌟<br></br>Check it out in just four minutes and see how joining us can make a difference in your life!
+    </p>
+    <div class="video-container">
+      <video width="100%" controls>
+        <source src="H:\HTML\Assiut STEM Deutsch Club\Why you should Learn German - Radical Living (1080p, h264, youtube).mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+  <section class="how-to-join">
+    <div class="flags">
+      <img src="https://media.tenor.com/erCCPDFq0FgAAAAM/germany-flag-gif.gif" alt="German Flag" class="flag flag-left">
+      <img src="https://media.tenor.com/erCCPDFq0FgAAAAM/germany-flag-gif.gif" alt="German Flag" class="flag flag-right">
+    </div>
+    
+    <h2>🌍 How to Join Us?</h2>
+    <p>
+      If you're passionate about learning the German language 🇩🇪 and exploring new cultures 🌐, join us today! Click the link below to register or visit our "Contact Us" page for more details.
+    </p>
+    <a href="https://forms.gle/zrC5aS1VCNA9Vw977" class="join-btn">Join the Club</a>
+    
+    <div class="join-images">
+      <img src="data:image/jpeg;base64,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" alt="Learning German">
+      <img src="https://cdn.sites.univibes.org/univibes.org/2023/05/maheshkumar-painam-hf-lfqdomf8-unsplash-scaled.jpg" alt="Cultural Exchange">
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <h2>🌟 Member Testimonials 🌟</h2>
+    <div class="testimonial-content">
+      <blockquote>
+        "Joining the club has been a transformative journey! I've sharpened my German skills and built lifelong friendships!" - Ahmed M. 🎓
+      </blockquote>
+      <blockquote>
+        "The events are organized brilliantly! Thanks to the club, I aced my language exam!" - Sara A. 📚✨
+      </blockquote>
+    </div>
+    <div class="certificates">
+      <img src="https://thumbs.dreamstime.com/z/print-146815470.jpg" alt="Certificate 1">
+      <img src="https://thumbs.dreamstime.com/z/print-146815470.jpg" alt="Certificate 2">
+      <img src="https://thumbs.dreamstime.com/z/print-146815470.jpg" alt="Certificate 3">
+    </div>
+  </section>
+  <section class="photo-gallery">
+    <h2>✨ Photo Gallery ✨</h2>
+    <div class="gallery">
+      <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 16.41.10_2925abf6.jpg" alt="German Language Workshop">
+      <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-25 at 12.10.52_a7fa2124.jpg" alt="Cultural Day Event">
+      <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-25 at 12.10.53_487ee293.jpg" alt="Club Members Meeting">
+    </div>
+  </section>
+  <footer class="team-footer">
+    <div class="footer-content">
+      
+      <h3>Assiut STEM Deutsch Club</h3>
+      <p>Follow us on social media and get in touch:</p>
+      <ul class="social-links">
+        <li><a href="https://www.facebook.com/share/QgS6ppEgxwP4UMx1/" target="_blank">Facebook</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://youtube.com" target="_blank">YouTube</a></li>
+      </ul>
+      <p>Email: teamemail@example.com | Phone: 01123456789</p>
+      <p>&copy; 2024 Assiut STEM Deutsch Club. All rights reserved.                                                        Website Designed By <strong>Youssef Sabry</strong></p>
+    </div>
+  </footer>
+  <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 18.38.57_2d85ecc0.jpg" alt="Description" class="bottom-left-image">
+
+    <script>
+        const title = document.getElementById('main-title');
+        const paragraph = document.getElementById('hidden-paragraph');
+        const card = document.getElementById('floating-card');
+        const logoRightFloating = document.getElementById('logo-right-floating');
+        
+        setTimeout(() => {
+            paragraph.style.display = 'block';
+            setTimeout(() => {
+                paragraph.style.opacity = 1;
+            }, 10);
+        }, 4000);
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                card.classList.add('show-card');
+                logoRightFloating.classList.add('show-logo'); // حركة اللوجو اليمين مع البوكس
+            }, 5000);
+        });
+        const benefitsCard = document.getElementById('benefits-card');
+        const StarLeftFloating = document.getElementById('star-left-floating');
+setTimeout(() => {
+    benefitsCard.classList.add('show-card-right');
+}, 7000); // يظهر بعد 7 ثواني
+    // دالة لإنشاء النجوم المتحركة
+    function createStars(numStars) {
+            const container = document.body;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 4 + 2 + 'px'; // عرض نجوم متغيرة
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDuration = Math.random() * 1 + 0.5 + 's'; // مدة متغيرة
+                container.appendChild(star);
+            }
+        }
+
+        // إنشاء 100 نجمة
+        createStars(100);
+        
+    const starLeftFloating = document.getElementById('star-left-floating');
+
+    // بعد 7 ثوانٍ، نظهر البطاقة والنجمة معًا
+    setTimeout(() => {
+        // إظهار البطاقة وتحريكها
+        benefitsCard.classList.add('show-card-right');
+        // إظهار وتحريك النجمة بالتزامن مع البطاقة
+        starLeftFloating.classList.add('show-star');
+    }, 7000); // يظهر بعد 7 ثواني
+    
+    </script>
+</body>
+</html>

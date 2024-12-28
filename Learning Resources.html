@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2014/04/15/16/53/reichstag-324982_1280.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            overflow-y: scroll; /* يسمح بتمرير الصفحة */
+            position: relative;
+            height: 200vh; /* اجعل ارتفاع الصفحة مزدوجًا لتتمكن من التمرير */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            margin: 15px;
+            width: 250px;
+            overflow: hidden;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.6);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #FFD700;
+        }
+        .card h3 {
+            margin: 10px 0;
+            color: #FFD700;
+            font-size: 1.5em;
+        }
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 1.5s infinite alternate;
+            filter: blur(2px);
+        }
+        @keyframes twinkle {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning Tools and Resources</h1>
+    <div class="container">
+        <div class="card" onclick="window.location.href='https://docs.google.com/presentation/d/1O-EuD3B30WIND2p5a_rVNkCDmOmHvp-s/edit?usp=sharing&ouid=113639208220798292095&rtpof=true&sd=true'">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\Screenshot 2024-10-26 215538.png" alt="Lektion 1">
+            <h3>Lektion 1</h3>
+        </div>
+        <div class="card" onclick="window.location.href='https://drive.google.com/file/d/1yugaCGzv2cPtdFuvJlQJtP_r0cud0QbQ/view?usp=sharing'">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\Screenshot 2024-10-26 215804.png" alt="Mercury">
+            <h3>Midterm Test Bank</h3>
+        </div>
+        
+        <!-- أضف المزيد من الكروت هنا -->
+    </div>
+    <script>
+        // دالة لإنشاء النجوم المتحركة
+        function createStars(numStars) {
+            const container = document.body;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 4 + 2 + 'px'; // عرض نجوم متغيرة
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + 'vw';
+                star.style.top = Math.random() * 100 + 'vh';
+                star.style.animationDuration = Math.random() * 1 + 0.5 + 's'; // مدة متغيرة
+                container.appendChild(star);
+            }
+        }
+
+        // إنشاء 100 نجمة
+        createStars(100);
+
+        // دالة للتمرير باللمس
+        let startY = 0;
+        document.addEventListener('touchstart', (event) => {
+            startY = event.touches[0].clientY; // احفظ موضع اللمس الأول
+        });
+
+        document.addEventListener('touchmove', (event) => {
+            const touchY = event.touches[0].clientY; // احصل على موضع اللمس الحالي
+            const scrollDiff = startY - touchY; // احسب الفرق
+            window.scrollBy(0, scrollDiff); // قم بالتمرير بناءً على الفرق
+            startY = touchY; // تحديث موضع اللمس
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assiut STEM Deutsch Club - Contact Us</title>
+
+    <!-- Google Fonts for Space-like font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2018/06/28/23/08/german-3504961_1280.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 48px;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+
+        /* Container for content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 120px; /* Space for header */
+        }
+
+        .content {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        /* Cards */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 15px;
+            width: 400px; /* Wider cards */
+            text-align: center;
+            opacity: 0; /* Hidden initially */
+            transform: translateY(50px); /* Start slightly below */
+            transition: opacity 1s ease, transform 1s ease, transform 0.3s ease; /* Animation */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            transition: transform 0.3s; /* Smooth scaling */
+        }
+
+        .card.show {
+            opacity: 1; /* Visible when scrolled into view */
+            transform: translateY(0); /* Bring it up to its place */
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card h2 {
+            margin-top: 20px;
+            font-size: 28px;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 3px; /* Spacing for a space effect */
+        }
+
+        .card p {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #E0E0E0;
+            letter-spacing: 2px; /* Spacing for a space effect */
+        }
+
+        /* Contact Info */
+        .contact-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .contact-info h2 {
+            font-size: 32px;
+            color: #FFD700;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        /* Starry background */
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Starry background -->
+    <div class="stars"></div>
+
+    <!-- Header with Team Name -->
+    <header>
+        <h1>Assiut STEM Deutsch Club</h1>
+        <p>Contact Us</p>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <!-- Team Member Cards -->
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t39.30808-6/460369402_122113848296470345_2495964961703026129_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHuxgJ7NJh9u0zRmM75H8wOQ1eNUbtM90JDV41Ru0z3QlW1VZe-kMEzjWHA5CFtzQM2wIwGLQW63VwzM9RTyIjX&_nc_ohc=fLXquvpTgkwQ7kNvgGVzViD&_nc_zt=23&_nc_ht=scontent.fcai21-3.fna&_nc_gid=AtVzjZIuzAUuAkaZwf9E3Lc&oh=00_AYC-8-OT-6AMCH-WaHgUC5-TEJ7iInXzdTKrTWLedz9Stg&oe=67231CB2" alt="Youssef Sabry">
+                    
+
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t39.30808-6/460627040_122113848404470345_8088059770886876893_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHj0Qw149PawOToz_Czbg9Me7rDOalYMoN7usM5qVgygzuZlgjf-vmBPcjJWXARhXGDPVD2PKpe1-QeU-nNsTIe&_nc_ohc=fFzcwTWUQSEQ7kNvgGvjMY4&_nc_zt=23&_nc_ht=scontent.fcai21-3.fna&_nc_gid=ARRjdBwBqsIVcRx3LBE5xOq&oh=00_AYC-rDRTyd8yywArFaoTYPwUXkyTuKsAnVzS5GWxPN0Crw&oe=67230D6D" alt="Sara Ashraf Ibrahim">
+                    
+                    
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t39.30808-6/460484697_122113848416470345_5291026257806008999_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHdxvVzSttodGVJc0x4dxvDlOrUVSZBEEmU6tRVJkEQSbD7rsfVIRaDep1_p_ziELGYWRga7EQXqlIA5cbzBWas&_nc_ohc=Lq_ksmKF89MQ7kNvgGOd-iA&_nc_zt=23&_nc_ht=scontent.fcai21-3.fna&_nc_gid=AJlRUFVie18Sc0H7NiLaE3o&oh=00_AYC-74-MYUP7_KlPeKWbLlO4A10mgTPdVfSTmHi8mN2Vxw&oe=67230B8D" alt="Malak Amer Abd El Sabour">
+                    
+                    
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-4.fna.fbcdn.net/v/t39.30808-6/460614206_122113848578470345_981277265751519044_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG206zBq_MYwBvQo-RZNO6diXrf6nIstnyJet_qciy2fBE7tRbabhfd87I17rcr0_G3LWtAa8Q3xdLQMXJlrRkP&_nc_ohc=9wBVUlQgfN8Q7kNvgEh_2Eg&_nc_zt=23&_nc_ht=scontent.fcai21-4.fna&_nc_gid=AmisGOFK7Wyczd_Nn5s3mMD&oh=00_AYANW3CBYEFhDI5zJGhedKglJpuqnTi-t67SNZH8_7kFcA&oe=6723058C" alt="Maryam Amer Abd El Sabour">
+                    
+                    
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t39.30808-6/460629281_122113848614470345_980794573878654171_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGfy84Zh5_xuP6goYI8S_425kt1h6S-thHmS3WHpL62EXD9iTOEz0XyNB1Cn_gOAN8PBgwc5XBw0fxzPABOb1UT&_nc_ohc=3NSVB44fMxoQ7kNvgFxFVxb&_nc_zt=23&_nc_ht=scontent.fcai21-3.fna&_nc_gid=AQhr0OWdTnjwOUBsYp-SSRo&oh=00_AYDI46Ks41uQP25uIZSLH3d8biFDpK1FmdBujVnRm61RXw&oe=67230536" alt="Nermeen Sayed Maghraby">
+                    
+                    
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-3.fna.fbcdn.net/v/t39.30808-6/460394469_122113848638470345_7384491618138375553_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF7HXuSpjgqh3ktgRXFH48tcRZy05r5akJxFnLTmvlqQubADZR99zpmSR9o_yRbiolwX4Uxz8f9FO5ysAhneUwd&_nc_ohc=ZrxUcOMDjmoQ7kNvgF9Z0ui&_nc_zt=23&_nc_ht=scontent.fcai21-3.fna&_nc_gid=AS1wc3O3TssZhCeTEcbECTU&oh=00_AYBp3SMuFxQdPcuVrBLbPD_v4wjBTyi5eVLYMfXjcd_fKg&oe=672301D8" alt="Bavly Ehab Fathy">
+                    
+                    
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-2.fna.fbcdn.net/v/t39.30808-6/460593095_122113848662470345_4731239203691318267_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHXUSpMuxPK1SDiKYOafpM-UEk6DFANNn9QSToMUA02f7fpEHjWCwF9DCFiUPJmr_9fVk-446a7v8lZJrbEoPn8&_nc_ohc=IDw8rSv1gAAQ7kNvgFMo6ez&_nc_zt=23&_nc_ht=scontent.fcai21-2.fna&_nc_gid=A5vWmna1Ex1D7DU4ATX195N&oh=00_AYCdvZHcGZ0s6qBawaArkf7UozHMA4byKbdQ94RP5A6UwA&oe=672317D3" alt="Bavly Ehab Fathy">
+                    
+                    
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-4.fna.fbcdn.net/v/t39.30808-6/460593512_122113853330470345_1913416746295721227_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFTf2pnd1gaUbVTld1m4OdBOX5ZaSCeopQ5fllpIJ6ilIJQwK8rv07kavYQR52578XD-eM4WgcJqfT_qExGkDP3&_nc_ohc=nL6fldxI_oEQ7kNvgGRYKkC&_nc_zt=23&_nc_ht=scontent.fcai21-4.fna&_nc_gid=AtG1ukZe9B69I5O19hyR3fu&oh=00_AYAs1xU8V1Y1fio1VNwou_zPJNXUOPLvdssPzavjhieBpQ&oe=6722EEB3" alt="Bavly Ehab Fathy">
+                    
+                    
+                </div>
+                <div class="card">
+                    <img src="https://scontent.fcai21-4.fna.fbcdn.net/v/t39.30808-6/460408483_122113857086470345_3977002468460772023_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHZpxYBzr73yA9TfjXAm-jOLYGF6noDvjstgYXqegO-O99xjvMWkGRbL-lHLG0aghivvLKtRqw7XJpaVOT5UC3D&_nc_ohc=zXMXQIMK_VAQ7kNvgEUCMgG&_nc_zt=23&_nc_ht=scontent.fcai21-4.fna&_nc_gid=AukE0ajqCGj3B7iNXrnTEGQ&oh=00_AYBpwXqEvSI8bsQ9qo4yZOgHAQH0lYkpr5-yC4RXeDNCvg&oe=6722EF4F" alt="Bavly Ehab Fathy">
+                    
+                    
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>If you have any questions or would like to get in touch, please contact us at:</p>
+                <p>Email: contact@Assiut STEM Deutsch Club.com</p>
+                <p>Phone: +20 123 456 7890</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show cards when scrolling into view
+        const cards = document.querySelectorAll('.card');
+
+        function showCards() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = windowHeight - 150; // When to reveal cards
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < revealPoint) {
+                    card.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', showCards);
+        showCards(); // Initial check
+    </script>
+
+</body>
+</html>

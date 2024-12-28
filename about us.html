@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Assiut STEM Deutsch Club</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        header {
+            background: url('https://cdn.pixabay.com/photo/2018/06/28/23/08/german-3504961_1280.jpg') no-repeat center center/cover;
+            height: 400px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            z-index: 2;
+            animation: slideInDown 1.5s ease;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #0073e6;
+            display: block;
+            margin: 8px auto;
+            border-radius: 4px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+        }
+
+        /* Offerings Section */
+        .offerings {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #0073e6;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Footer Section */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #0073e6;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Keyframes */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to Assiut STEM Deutsch Club</h1>
+    </header>
+
+    <!-- About Section -->
+    <section class="about container">
+        <h2>About Us</h2>
+        <p>Assiut STEM Deutsch Club is a student-led club that fosters an environment for learning and exploring German language and culture. Our mission is to offer a fun, supportive, and interactive platform where students can deepen their understanding and skills in German, enriching both personal and academic growth.</p>
+    </section>
+
+    <!-- Offerings Section -->
+    <section class="offerings container">
+        <div class="card">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-25 at 12.10.53_487ee293.jpg" alt="Language Lessons">
+            <div class="card-content">
+                <h3>Language Lessons</h3>
+                <p>From beginner to advanced levels, we provide structured lessons in German grammar, vocabulary, and pronunciation.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="H:\HTML\Assiut STEM Deutsch Club\WhatsApp Image 2024-10-18 at 16.41.10_2925abf6.jpg" alt="Cultural Workshops">
+            <div class="card-content">
+                <h3>Cultural Workshops</h3>
+                <p>Explore the beauty of German culture with workshops on literature, music, cuisine, and traditions.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.squarespace-cdn.com/content/v1/5a468e95d55b4166712c34e7/1516398540839-FPABEYWVJK72KZYT6TD2/speak.jpg" alt="Conversation Practice">
+            <div class="card-content">
+                <h3>Conversation Practice</h3>
+                <p>Regular speaking sessions to help build confidence in everyday conversations and improve fluency.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://www.dusquad.com/wp-content/uploads/2023/03/exam-preparation-strategies-for-delhi-university-students.jpg" alt="Exam Preparation">
+            <div class="card-content">
+                <h3>Exam Preparation</h3>
+                <p>Resources and guidance to help students aiming for German language certifications like A1 and A2.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2024 Assiut STEM Deutsch Club | All Rights Reserved
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Assiut STEM Deutsch Club</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            height: 100vh; /* 100% من ارتفاع الصفحة */
+            display: flex;
+            flex-direction: column; /* التوجيه العمودي */
+            justify-content: center; /* توسيط عمودي */
+            align-items: center; /* توسيط أفقي */
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%; /* عشان يمتد العرض بالكامل */
+            position: absolute; /* لتثبيت الهيدر في الأعلى */
+            top: 0; /* لتثبيت الهيدر في الجزء العلوي */
+            left: 0; /* لتثبيت الهيدر في الجزء الأيسر */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Programs Section */
+        .programs {
+            width: 90%; /* عرض البوكس */
+            max-width: 600px; /* حد أقصى للعرض */
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 80px; /* زيادة المسافة بين الهيدر والمحتوى */
+            animation: fadeIn 1s ease; /* تأثير الظهور */
+        }
+
+        .oops {
+            font-size: 1.8rem; /* حجم الخط لكلمة Oops! */
+            color: #e74c3c; /* لون يوحى بالخطأ */
+            margin-bottom: 10px; /* مسافة أسفل الكلمة */
+        }
+
+        .message {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Our Programs</h1>
+    </header>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="oops">Oops! 😱</div>
+        <h2>Currently, there are no programs available for Germany.</h2>
+        <p class="message">Please check back later for updates on new programs and opportunities.</p>
+    </section>
+
+</body>
+</html>
